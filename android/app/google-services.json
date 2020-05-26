@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "71072996077",
+    "firebase_url": "https://joane-game.firebaseio.com",
+    "project_id": "joane-game",
+    "storage_bucket": "joane-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71072996077:android:d0ab67f5255bccbc340ae4",
+        "android_client_info": {
+          "package_name": "com.example.spades"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71072996077-56mfc0b74hd84vq9ermoei7d0k4bfaqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhKSWkUjgyR90L7QDPkwlYHXRjoG_eTm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71072996077-56mfc0b74hd84vq9ermoei7d0k4bfaqf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "71072996077-hlqhjv51lqoism7ro6q5vg0tmjo5lqbe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "spades"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
