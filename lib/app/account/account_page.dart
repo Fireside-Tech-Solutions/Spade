@@ -41,30 +41,55 @@ class AccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<User>(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(Strings.account),
-        actions: <Widget>[
-          FlatButton(
-            key: Key(Keys.logout),
-            child: Text(
-              Strings.logout,
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.white,
-              ),
-            ),
-            onPressed: () => _confirmSignOut(context),
+    return  Scaffold(        
+      body: Stack(
+        children: <Widget>[ 
+          Container(
+            decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [ Color(0xFF430346), Colors.white],
+              begin: FractionalOffset.topCenter,
+              end: FractionalOffset.bottomRight),
           ),
-        ],
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(130.0),
-          child: _buildUserInfo(user),
-        ),
-      ),
+           child: Center(
+            child: Text('Gradients are cool!'),
+           ),
+          ),
+          new Positioned(
+            top: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: AppBar(
+              title: Text(Strings.account),
+              backgroundColor: Colors.transparent,)
+      ),]
+    ),
     );
   }
+  // @override
+  // Widget build(BuildContext context) {
+  //   final user = Provider.of<User>(context);
+  //   return MaterialApp(
+  //     home: Scaffold(
+  //       appBar: AppBar(
+  //         title: Text(Strings.account),
+  //         bottom: PreferredSize(
+  //           preferredSize: const Size.fromHeight(130.0),
+  //           child: _buildUserInfo(user),
+  //         ),
+  //       ),
+  //     body: Container(
+  //       decoration: BoxDecoration(
+  //         gradient: LinearGradient(
+  //             colors: [ Color(0x430346), Color(0xFFFFFF)],
+  //             begin: FractionalOffset.topLeft,
+  //             end: FractionalOffset.bottomRight,
+  //            ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget _buildUserInfo(User user) {
     return Column(
