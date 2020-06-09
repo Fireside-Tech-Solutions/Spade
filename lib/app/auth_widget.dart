@@ -1,4 +1,6 @@
+import 'package:spades/app/lobby/lobby_page.dart';
 import 'package:spades/app/account/account_page.dart';
+import 'package:spades/app/lobby/lobby_page.dart';
 import 'package:spades/app/sign_in/sign_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:spades/services/firebase_auth_service.dart';
@@ -14,7 +16,7 @@ class AuthWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (userSnapshot.connectionState == ConnectionState.active) {
-      return userSnapshot.hasData ? AccountPage() : SignInPageBuilder();
+      return userSnapshot.hasData ? LandingPage() : SignInPageBuilder();
     }
     return const Scaffold(
       body: Center(

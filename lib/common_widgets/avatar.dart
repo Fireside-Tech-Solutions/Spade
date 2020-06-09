@@ -20,7 +20,8 @@ class Avatar extends StatelessWidget {
       child: CircleAvatar(
         radius: radius,
         backgroundColor: Colors.black12,
-        backgroundImage: photoUrl != null ? NetworkImage(photoUrl) : null,
+        //Changed from Network Image to Asset for testing purposes
+        backgroundImage: photoUrl != null ? AssetImage(photoUrl) : null,
         child: photoUrl == null ? Icon(Icons.camera_alt, size: radius) : null,
       ),
     );

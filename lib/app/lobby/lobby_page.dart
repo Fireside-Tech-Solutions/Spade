@@ -1,45 +1,14 @@
-import 'dart:async';
-import 'package:spades/common_widgets/avatar.dart';
-import 'package:spades/common_widgets/show_alert_dialog.dart';
-import 'package:spades/common_widgets/show_exception_alert_dialog.dart';
-import 'package:spades/constants/strings.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:spades/routing/router.dart';
 import 'package:spades/services/firebase_auth_service.dart';
-import 'package:pedantic/pedantic.dart';
-import 'package:spades/common_widgets/players_horizantal_listview.dart';
+import 'package:spades/common_widgets/avatar.dart';
+import 'package:spades/common_widgets/avatar_stacked.dart';
 
-class AccountPage extends StatelessWidget {
-  Future<void> _signOut(BuildContext context) async {
-    try {
-      final FirebaseAuthService auth =
-          Provider.of<FirebaseAuthService>(context, listen: false);
-      await auth.signOut();
-    } catch (e) {
-      unawaited(showExceptionAlertDialog(
-        context: context,
-        title: Strings.logoutFailed,
-        exception: e,
-      ));
-    }
-  }
-
-  Future<void> _confirmSignOut(BuildContext context) async {
-    final bool didRequestSignOut = await showAlertDialog(
-          context: context,
-          title: Strings.logout,
-          content: Strings.logoutAreYouSure,
-          cancelActionText: Strings.cancel,
-          defaultActionText: Strings.logout,
-        ) ??
-        false;
-    if (didRequestSignOut == true) {
-      await _signOut(context);
-    }
-  }
-
-  @override
+class LandingPage extends StatelessWidget {
+  
+@override
   Widget build(BuildContext context) {
     //Must remove later now for testing to test profile image that dont work
     final user = Provider.of<User>(context);
@@ -50,14 +19,6 @@ class AccountPage extends StatelessWidget {
           preferredSize: const Size.fromHeight(100.0),
           child: Row(
             children: <Widget>[
-            IconButton(
-            icon: const Icon(Icons.navigate_next),
-            tooltip: 'Next page',
-            onPressed: () {
-              Routes.landingPage;
-            },
-            ),
-
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(left:20.0, bottom: 10.0),
@@ -130,7 +91,29 @@ class AccountPage extends StatelessWidget {
           ),
         ),
       ),
-    body: ProfileList()
+      body: Column(
+        children: <Widget>[
+        Text("Start Team Match"),
+        SizedBox(
+          height: 200,
+          child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          shrinkWrap: true,
+          itemBuilder: (BuildContext context, int index) => Container(
+            child: Column( 
+                mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                StackedAvatar( photoUrl: user.photoUrl, radius: 20 ),
+                Text("Dorian + Jadi"),
+                Text("10 wins"),
+              ],
+            ),
+          ),
+          ),
+        ),
+        FlatButton(onPressed: null, child: Text("Learn"))
+       ],
+      ),
     );
   }
 }
