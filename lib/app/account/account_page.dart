@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:spades/common_widgets/avatar.dart';
+import 'package:spades/common_widgets/players_horizantal_listview.dart';
 import 'package:spades/common_widgets/show_alert_dialog.dart';
 import 'package:spades/common_widgets/show_exception_alert_dialog.dart';
 import 'package:spades/constants/strings.dart';
@@ -8,7 +9,6 @@ import 'package:provider/provider.dart';
 import 'package:spades/routing/router.dart';
 import 'package:spades/services/firebase_auth_service.dart';
 import 'package:pedantic/pedantic.dart';
-import 'package:spades/common_widgets/players_horizantal_listview.dart';
 
 class AccountPage extends StatelessWidget {
   Future<void> _signOut(BuildContext context) async {
