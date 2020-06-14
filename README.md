@@ -1,4 +1,4 @@
-# spades
+# Spades
 
 A new Flutter project.
 
